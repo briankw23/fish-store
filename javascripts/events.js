@@ -20,6 +20,15 @@ const moveToCart = (e) => {
   const fishCard = $(e.target).closest('.fish');
   console.log('fishCard',fishCard);
   $('#snagged').append(fishCard);
+  $(e.target).text('Remove from Cart');
+  $(e.target).on('click', removeFromCart);
+};
+
+const removeFromCart = (e) => {
+  const fishCard = $(e.target).closest('.fish');
+  $('#available').append(fishCard);
+  $(e.target).text('Add to Cart');
+  $(e.target).on('click', moveToCart);
 };
 
 const bindEvents = () => {
